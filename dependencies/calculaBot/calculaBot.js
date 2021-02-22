@@ -26,6 +26,7 @@ client.on('message', msg => {
         } else if (msg.content === "yonis") {
             yonis = yonis ? false : true
             console.log("[CalculaBot] : yonis : " + yonis)
+            msg.delete()
         } else if (yonis && msg.author.id === "520151596710101003"){
             actuel = actuel + 1
         } else if (encour){
