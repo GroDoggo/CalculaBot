@@ -8,6 +8,8 @@ var prec2 = "000000"
 var best = 0
 var encour = false
 
+var yonis = false
+
 client.on('ready', () => {
     console.log(`[CalculaBot] : Logged in as ${client.user.tag}!`);
     client.user.setActivity(`des chiffres (max : ${best})`, { type: "WATCHING" })
@@ -21,6 +23,11 @@ client.on('message', msg => {
             prec2 = "0000000"
             msg.react('🏁')
             encour = true
+        } else if (msg.content === "yonis") {
+            yonis = yonis ? false : true
+            console.log("[CalculaBot] : yonis : " + yonis)
+        } else if (yonis && msg.author.id === "520151596710101003"){
+            actuel = actuel + 1
         } else if (encour){
             try {
                 const proposition = parseInt(msg.content)
